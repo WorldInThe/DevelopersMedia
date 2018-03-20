@@ -1,0 +1,12 @@
+C:\Users\Mark Boone\source\repos\Asp Core Testing\Asp Core Testing\bin\Debug\netcoreapp2.0\Asp Core Testing.deps.json
+C:\Users\Mark Boone\source\repos\Asp Core Testing\Asp Core Testing\bin\Debug\netcoreapp2.0\Asp Core Testing.runtimeconfig.json
+C:\Users\Mark Boone\source\repos\Asp Core Testing\Asp Core Testing\bin\Debug\netcoreapp2.0\Asp Core Testing.runtimeconfig.dev.json
+C:\Users\Mark Boone\source\repos\Asp Core Testing\Asp Core Testing\bin\Debug\netcoreapp2.0\Asp Core Testing.dll
+C:\Users\Mark Boone\source\repos\Asp Core Testing\Asp Core Testing\bin\Debug\netcoreapp2.0\Asp Core Testing.pdb
+C:\Users\Mark Boone\source\repos\Asp Core Testing\Asp Core Testing\obj\Debug\netcoreapp2.0\Asp Core Testing.csprojResolveAssemblyReference.cache
+C:\Users\Mark Boone\source\repos\Asp Core Testing\Asp Core Testing\obj\Debug\netcoreapp2.0\Asp Core Testing.csproj.CoreCompileInputs.cache
+C:\Users\Mark Boone\source\repos\Asp Core Testing\Asp Core Testing\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\Mark Boone\source\repos\Asp Core Testing\Asp Core Testing\obj\Debug\netcoreapp2.0\Asp Core Testing.AssemblyInfoInputs.cache
+C:\Users\Mark Boone\source\repos\Asp Core Testing\Asp Core Testing\obj\Debug\netcoreapp2.0\Asp Core Testing.AssemblyInfo.cs
+C:\Users\Mark Boone\source\repos\Asp Core Testing\Asp Core Testing\obj\Debug\netcoreapp2.0\Asp Core Testing.dll
+C:\Users\Mark Boone\source\repos\Asp Core Testing\Asp Core Testing\obj\Debug\netcoreapp2.0\Asp Core Testing.pdb

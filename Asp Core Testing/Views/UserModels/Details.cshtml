@@ -1,0 +1,61 @@
+﻿@model Asp_Core_Testing.Models.UserModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UserModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProgLanguages)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProgLanguages)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Specializations)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Specializations)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AvatarURL)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AvatarURL)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPrivate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsPrivate)
+        </dd>
+        
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
