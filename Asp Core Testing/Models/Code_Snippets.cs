@@ -8,8 +8,8 @@ namespace Asp_Core_Testing.Models
         public int Id { get; set; }
 
         public string CodeSnippet { get; set; }
-        public List<CodeComments> CodeComments { get; set; }
-        public DateTime DateAdded { get; set; }
+        public ICollection<CodeComments> CodeComments { get; set; }
+        public DateTime? DateAdded { get; set; }
 
     }
 
@@ -20,7 +20,7 @@ namespace Asp_Core_Testing.Models
         public string Comment { get; set; }
         public string Poster { get; set; }
         public string PosterId { get; set; }
-        public DateTime DateAdded { get; set; }
+        public DateTime? DateAdded { get; set; }
 
     }
 }

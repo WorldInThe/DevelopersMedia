@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using Asp_Core_Testing.Models;
 using Asp_Core_Testing.Models.AccountViewModels;
 using Asp_Core_Testing.Services;
+using Asp_Core_Testing.Data;
 
 namespace Asp_Core_Testing.Controllers
 {
@@ -22,6 +23,7 @@ namespace Asp_Core_Testing.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly ApplicationDbContext db;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
 
@@ -29,12 +31,14 @@ namespace Asp_Core_Testing.Controllers
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender,
-            ILogger<AccountController> logger)
+            ILogger<AccountController> logger,
+            ApplicationDbContext _db)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
+            db = _db;
         }
 
         [TempData]
@@ -221,9 +225,22 @@ namespace Asp_Core_Testing.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var usermodel = new UserModel
+                {
+                    Name = model.User.Name,
+                    Email = model.Email,
+                    Description = model.User.Description
+                };
                 var result = await _userManager.CreateAsync(user, model.Password);
+                if(usermodel == null)
+                {
+                    return View();
+                }
+                var resultdb = db.User.AddAsync(usermodel);
+                await db.SaveChangesAsync();
                 if (result.Succeeded)
                 {
+                    
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -234,6 +251,7 @@ namespace Asp_Core_Testing.Controllers
                     _logger.LogInformation("User created a new account with password.");
                     return RedirectToLocal(returnUrl);
                 }
+
                 AddErrors(result);
             }
 

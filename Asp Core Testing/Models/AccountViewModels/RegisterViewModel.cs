@@ -8,6 +8,10 @@ namespace Asp_Core_Testing.Models.AccountViewModels
 {
     public class RegisterViewModel
     {
+        public RegisterViewModel()
+        {
+            User = new UserModel();
+        }
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -23,5 +27,7 @@ namespace Asp_Core_Testing.Models.AccountViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public UserModel User { get; set; }
     }
 }

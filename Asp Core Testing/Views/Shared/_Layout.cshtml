@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Asp_Core_Testing</title>
+    <title>@ViewData["Title"] - DevSocial</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -17,7 +17,7 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    @*<nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -26,7 +26,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Asp_Core_Testing</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">DevSocial</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -37,12 +37,25 @@
                 @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
+    </nav>*@
+    <nav id="sidenav" class="navbar-left">
+        <div>
+            <div class="sidenavContainer">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">DevSocial</a>
+                @await Html.PartialAsync("_LoginPartial")
+                <a href="#">Home</a>
+                <br />
+                <a href="#">Gallery</a>
+                <br />
+                <a href="#">Code Projects</a>
+            </div>
+        </div>
     </nav>
-    <div class="container body-content">
+    <div class="container body-content" @*style="padding-top: 15px"*@>
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2018 - Asp_Core_Testing</p>
+            <p>&copy; @DateTime.Now.Year - DevSocial</p>
         </footer>
     </div>
 

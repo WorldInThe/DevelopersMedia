@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Asp_Core_Testing.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -17,10 +18,18 @@ namespace Asp_Core_Testing.Models
         public string Specializations { get; set; }
         [DisplayName("Profile Picture")]
         public string AvatarURL { get; set; }
-        public List<Album> Album { get; set; }
-        public List<Posts> Posts { get; set; }
+        public ICollection<Album> Album { get; set; }
+        public ICollection<Posts> Posts { get; set; }
         public bool IsPrivate { get; set; }
-        public List<CodeProjects> CodeProjects { get; set; }
+        public ICollection<CodeProjects> CodeProjects { get; set; }
+
+        public string getName(string User)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            var UList = db.User.ToList().Find(x => x.Email.Contains(User));
+            string name = UList.Name;
+            return name;
+        }
 
     }
 }

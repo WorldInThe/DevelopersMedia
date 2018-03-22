@@ -13,9 +13,9 @@ namespace Asp_Core_Testing.Models
         [Required]
         public string Content { get; set; }
         public string ImageUrl { get; set; }
-        public List<Comments> Comments { get; set; }
+        public ICollection<Comments> Comments { get; set; }
         public PostType PostType { get; set; }
-        public DateTime DateAdded { get; set; }
+        public DateTime? DateAdded { get; set; }
 
 
     }

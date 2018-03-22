@@ -11,7 +11,7 @@ namespace Asp_Core_Testing.Models
         public string ImageUrl { get; set; }
         public string Description { get; set; }
         public Category Category { get; set; }
-        public DateTime DateAdded { get; set; }
+        public DateTime? DateAdded { get; set; }
 
     }
     public enum Category

@@ -11,7 +11,7 @@ namespace Asp_Core_Testing.Models
         public string PosterId { get; set; }
         public string Poster { get; set; }
         public string Comment { get; set; }
-        public DateTime DateAdded { get; set; }
+        public DateTime? DateAdded { get; set; }
 
     }
 }
