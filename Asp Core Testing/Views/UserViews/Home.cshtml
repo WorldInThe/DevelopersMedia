@@ -2,14 +2,14 @@
 @{
     ViewData["Title"] = "Home";
 }
-
-<h2>Home</h2>
-
+<div style="text-align: center">
+<img src="@Model.AvatarURL" style="width: 30%; border-radius:10%" />
 <ul>
     <li>@Model.Name</li>
     <li>@Model.Description</li>
     <li>@Model.Email</li>
     <li>@Model.ProgLanguages</li>
     <li>@Model.Specializations</li>
-    
+
 </ul>
+</div>

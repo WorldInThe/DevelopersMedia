@@ -14,6 +14,8 @@ using Asp_Core_Testing.Models;
 using Asp_Core_Testing.Models.AccountViewModels;
 using Asp_Core_Testing.Services;
 using Asp_Core_Testing.Data;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace Asp_Core_Testing.Controllers
 {
@@ -219,19 +221,34 @@ namespace Asp_Core_Testing.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
+        public async Task<IActionResult> Register(RegisterViewModel model, IFormFile File, string returnUrl = null)
         {
+            Random rnd = new Random();
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                File.FileName.Replace(" ","%");
+                File.FileName.Replace(@"\", "/");
+                string rn = Convert.ToString(rnd.Next(50));
+                var filePath = Path.Combine( "wwwroot/images/StoredImages", rn + File.FileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await File.CopyToAsync(stream);
+                }
+
+                string FilePathNew = "/images/StoredImages/" + rn + File.FileName ;
+
+                    var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var usermodel = new UserModel
                 {
                     Name = model.User.Name,
                     Email = model.Email,
                     Description = model.User.Description,
                     ProgLanguages = model.User.ProgLanguages,
-                    Specializations = model.User.Specializations
+                    Specializations = model.User.Specializations,
+                    IsPrivate = model.User.IsPrivate,
+                    AvatarURL = FilePathNew,
                 };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
