@@ -43,14 +43,11 @@
     <nav id="sidenav" class="navbar-left">
         <div>
             <div class="sidenavContainer">
-                <img src="~/images/Logo.png" style="width: 100%;"/>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">DevSocial</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <img src="~/images/Logo.png" style="width: 100%;" />
+                </a>
                 @await Html.PartialAsync("_LoginPartial")
-                <a href="#">Home</a>
-                <br />
-                <a href="#">Gallery</a>
-                <br />
-                <a href="#">Code Projects</a>
+                
             </div>
         </div>
     </nav>
