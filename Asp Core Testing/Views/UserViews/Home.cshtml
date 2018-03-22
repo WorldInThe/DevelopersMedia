@@ -1,6 +1,15 @@
-﻿@model IEnumerable<Asp_Core_Testing.Models.UserModel>
+﻿@model Asp_Core_Testing.Models.UserModel
 @{
     ViewData["Title"] = "Home";
 }
 
 <h2>Home</h2>
+
+<ul>
+    <li>@Model.Name</li>
+    <li>@Model.Description</li>
+    <li>@Model.Email</li>
+    <li>@Model.ProgLanguages</li>
+    <li>@Model.Specializations</li>
+    
+</ul>

@@ -229,13 +229,17 @@ namespace Asp_Core_Testing.Controllers
                 {
                     Name = model.User.Name,
                     Email = model.Email,
-                    Description = model.User.Description
+                    Description = model.User.Description,
+                    ProgLanguages = model.User.ProgLanguages,
+                    Specializations = model.User.Specializations
                 };
+
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if(usermodel == null)
                 {
                     return View();
                 }
+
                 var resultdb = db.User.AddAsync(usermodel);
                 await db.SaveChangesAsync();
                 if (result.Succeeded)
