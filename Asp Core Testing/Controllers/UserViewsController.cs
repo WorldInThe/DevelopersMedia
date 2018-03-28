@@ -34,6 +34,7 @@ namespace Asp_Core_Testing.Controllers
             UItem.Posts = Posts;
             return View(UItem);
         }
+        
 
         public IActionResult PostsView(string UserEmail)
         {
@@ -63,18 +64,23 @@ namespace Asp_Core_Testing.Controllers
             return false;
         }
 
-        [HttpGet]
-        public IActionResult PostsCreate()
-        {
-            return View();
-        }
+        //[HttpGet]
+        //public IActionResult PostsCreate()
+        //{
+        //    return View();
+        //}
 
         [HttpPost]
         public async Task<IActionResult> PostsCreate(UserModel model, IFormFile File)
         {
+            //var CurrentUser = db.User.ToList().Find(x => x.Email == User.Identity.Name);
+            //model.Id = CurrentUser.Id;
+            //model.Name = CurrentUser.Name;
+            //model.ProgLanguages = 
+
             Random rnd = new Random();
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 string FilePathNew;
                 if (File != null)
                 {
@@ -100,7 +106,7 @@ namespace Asp_Core_Testing.Controllers
                     {
                         new Posts {Content = model.Posts.LastOrDefault().Content,
                         ImageUrl = FilePathNew,
-                        PostType = model.Posts.LastOrDefault().PostType,
+                        PostType = model.Posts.First().PostType,
                         ModelId = UserItem.Id,
                         DateAdded = DateTime.Today
                         }
@@ -110,9 +116,9 @@ namespace Asp_Core_Testing.Controllers
                 var result = db.Entry(UserItem).State = EntityState.Modified;
                 await db.SaveChangesAsync();
 
-            }
+            //}
 
-            return View();
+            return RedirectToAction("Home");
         }
 
     }

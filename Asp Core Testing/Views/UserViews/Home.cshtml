@@ -4,13 +4,12 @@
 }
 
 <div class="row">
-    <div class="col-lg-3">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-3" style="position: fixed">
         @await Html.PartialAsync("_UserProfile")
     </div>
-    <div class="col-lg-5">
+    <div class="col-lg-6">
+        @await  Html.PartialAsync("_PostsCreate")
         @await Html.PartialAsync("_PostsView")
-    </div>
-    <div class="col-lg-3">
-        <a href="PostsCreate">Post!</a>
     </div>
 </div>
