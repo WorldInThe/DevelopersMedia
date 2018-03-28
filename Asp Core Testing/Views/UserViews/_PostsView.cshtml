@@ -1,0 +1,42 @@
+﻿@model Asp_Core_Testing.Models.UserModel
+
+
+<div>
+    @if (Model.Posts != null)
+    {
+        foreach (var item in Model.Posts)
+        {
+            <div class="post">
+                <p>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </p>
+
+                @if (item.ImageUrl != "DNE")
+                {
+                    <img src="@item.ImageUrl" style="width: 100%;x" />
+                }
+
+                <p>
+                    @Html.DisplayFor(mod => item.PostType)
+
+                </p>
+
+
+                @*
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                *@
+
+            </div>
+        }
+
+    }
+    else
+    {
+        <p>This User Has no Posts</p>
+
+    }
+
+
+</div>

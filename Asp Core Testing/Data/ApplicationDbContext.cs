@@ -11,6 +11,7 @@ namespace Asp_Core_Testing.Data
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<UserModel> User { get; set; }
+        public DbSet<Following> Following { get; set; }
 
         public DbSet<Album> Album { get; set; }
         public DbSet<Images> Images { get; set; }
@@ -21,6 +22,8 @@ namespace Asp_Core_Testing.Data
         public DbSet<CodeProjects> CodeProjects { get; set; }
         public DbSet<CodeComments> CodeComments { get; set; }
         public DbSet<Code_Snippets> Code_Snippets { get; set; }
+
+
 
 
 

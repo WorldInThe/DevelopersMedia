@@ -20,6 +20,8 @@ namespace Asp_Core_Testing.Controllers
     [Route("[controller]/[action]")]
     public class ManageController : Controller
     {
+        #region Obj Declarations
+
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
@@ -42,9 +44,12 @@ namespace Asp_Core_Testing.Controllers
             _logger = logger;
             _urlEncoder = urlEncoder;
         }
+        #endregion
+
 
         [TempData]
         public string StatusMessage { get; set; }
+        #region Index
 
         [HttpGet]
         public async Task<IActionResult> Index()
@@ -105,6 +110,7 @@ namespace Asp_Core_Testing.Controllers
             StatusMessage = "Your profile has been updated";
             return RedirectToAction(nameof(Index));
         }
+        #endregion
 
         [HttpPost]
         [ValidateAntiForgeryToken]

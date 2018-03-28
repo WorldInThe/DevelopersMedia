@@ -1,0 +1,23 @@
+﻿@model Asp_Core_Testing.Models.UserModel
+
+<style>
+    .HomeView {
+        text-align: left;
+        border: solid darkslategrey;
+        border-radius: 10px;
+        background-color: dimgrey;
+        height: 70vh;
+    }
+</style>
+<div class="HomeView">
+    <img src="@Model.AvatarURL" style="width: 100%; border-radius: 7px 7px 0px 0px;" />
+    @Model.Name
+    <br />
+    @Model.Description
+    <br />
+    @Model.Email
+    <br />
+    @Model.ProgLanguages
+    <br />
+    @Model.Specializations
+</div>

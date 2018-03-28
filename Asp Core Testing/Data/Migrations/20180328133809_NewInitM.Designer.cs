@@ -12,9 +12,10 @@ using System;
 namespace Asp_Core_Testing.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180328133809_NewInitM")]
+    partial class NewInitM
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -174,24 +175,6 @@ namespace Asp_Core_Testing.Data.Migrations
                     b.HasIndex("PostsId");
 
                     b.ToTable("Comments");
-                });
-
-            modelBuilder.Entity("Asp_Core_Testing.Models.Following", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("ModelId");
-
-                    b.Property<int>("UserId");
-
-                    b.Property<int?>("UserModelId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserModelId");
-
-                    b.ToTable("Following");
                 });
 
             modelBuilder.Entity("Asp_Core_Testing.Models.Images", b =>
@@ -413,13 +396,6 @@ namespace Asp_Core_Testing.Data.Migrations
                     b.HasOne("Asp_Core_Testing.Models.Posts")
                         .WithMany("Comments")
                         .HasForeignKey("PostsId");
-                });
-
-            modelBuilder.Entity("Asp_Core_Testing.Models.Following", b =>
-                {
-                    b.HasOne("Asp_Core_Testing.Models.UserModel")
-                        .WithMany("Following")
-                        .HasForeignKey("UserModelId");
                 });
 
             modelBuilder.Entity("Asp_Core_Testing.Models.Images", b =>

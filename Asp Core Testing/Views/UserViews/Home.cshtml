@@ -1,15 +1,16 @@
-﻿@model Asp_Core_Testing.Models.UserModel
+﻿
 @{
     ViewData["Title"] = "Home";
 }
-<div style="text-align: center">
-<img src="@Model.AvatarURL" style="width: 30%; border-radius:10%" />
-<ul>
-    <li>@Model.Name</li>
-    <li>@Model.Description</li>
-    <li>@Model.Email</li>
-    <li>@Model.ProgLanguages</li>
-    <li>@Model.Specializations</li>
 
-</ul>
+<div class="row">
+    <div class="col-lg-3">
+        @await Html.PartialAsync("_UserProfile")
+    </div>
+    <div class="col-lg-5">
+        @await Html.PartialAsync("_PostsView")
+    </div>
+    <div class="col-lg-3">
+        <a href="PostsCreate">Post!</a>
+    </div>
 </div>

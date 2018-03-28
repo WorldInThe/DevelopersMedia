@@ -12,6 +12,8 @@ namespace Asp_Core_Testing.Models
         public string Description { get; set; }
         public Category Category { get; set; }
         public DateTime? DateAdded { get; set; }
+        public int ParentId { get; set; }
+        public int UserId { get; set; }
 
     }
     public enum Category

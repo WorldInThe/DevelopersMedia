@@ -239,7 +239,8 @@ namespace Asp_Core_Testing.Controllers
 
                 string FilePathNew = "/images/StoredImages/" + rn + File.FileName ;
 
-                    var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+
                 var usermodel = new UserModel
                 {
                     Name = model.User.Name,

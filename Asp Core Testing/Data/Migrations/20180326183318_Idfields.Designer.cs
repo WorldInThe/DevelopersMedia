@@ -12,9 +12,10 @@ using System;
 namespace Asp_Core_Testing.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180326183318_Idfields")]
+    partial class Idfields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -176,24 +177,6 @@ namespace Asp_Core_Testing.Data.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("Asp_Core_Testing.Models.Following", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("ModelId");
-
-                    b.Property<int>("UserId");
-
-                    b.Property<int?>("UserModelId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserModelId");
-
-                    b.ToTable("Following");
-                });
-
             modelBuilder.Entity("Asp_Core_Testing.Models.Images", b =>
                 {
                     b.Property<int>("Id")
@@ -209,9 +192,7 @@ namespace Asp_Core_Testing.Data.Migrations
 
                     b.Property<string>("ImageUrl");
 
-                    b.Property<int>("ParentId");
-
-                    b.Property<int>("UserId");
+                    b.Property<int>("ModelId");
 
                     b.HasKey("Id");
 
@@ -252,20 +233,17 @@ namespace Asp_Core_Testing.Data.Migrations
 
                     b.Property<string>("AvatarURL");
 
-                    b.Property<string>("Description")
-                        .IsRequired();
+                    b.Property<string>("Description");
 
                     b.Property<string>("Email");
 
                     b.Property<bool>("IsPrivate");
 
-                    b.Property<string>("Name")
-                        .IsRequired();
+                    b.Property<string>("Name");
 
                     b.Property<string>("ProgLanguages");
 
-                    b.Property<string>("Specializations")
-                        .IsRequired();
+                    b.Property<string>("Specializations");
 
                     b.HasKey("Id");
 
@@ -413,13 +391,6 @@ namespace Asp_Core_Testing.Data.Migrations
                     b.HasOne("Asp_Core_Testing.Models.Posts")
                         .WithMany("Comments")
                         .HasForeignKey("PostsId");
-                });
-
-            modelBuilder.Entity("Asp_Core_Testing.Models.Following", b =>
-                {
-                    b.HasOne("Asp_Core_Testing.Models.UserModel")
-                        .WithMany("Following")
-                        .HasForeignKey("UserModelId");
                 });
 
             modelBuilder.Entity("Asp_Core_Testing.Models.Images", b =>

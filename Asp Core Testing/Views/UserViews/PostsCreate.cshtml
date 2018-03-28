@@ -1,0 +1,47 @@
+﻿@model Asp_Core_Testing.Models.UserModel
+
+@{
+    ViewData["Title"] = "CreatePost";
+}
+
+<div>
+    <form method="post" enctype="multipart/form-data">
+
+        @for (int i = 0; i < 1; i++)
+        {
+            <div class="form-group">
+                <label asp-for="Posts[i].Content"></label>
+                <input asp-for="Posts[i].Content" class="form-control" />
+                <span asp-validation-for="Posts[i].Content" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Place a picture: </label>
+                <input type="file" name="file" />
+            </div>
+
+            <div class="form-group">
+                @Html.DropDownList("PostType", Html.GetEnumSelectList<PostType>(), "Select Post Type", new { @class = "form-control" })
+                @*<label asp-for="Posts[i].PostType"></label>
+                <input asp-for="Posts[i].PostType" />
+                <span asp-validation-for="Posts[i].PostType" class="text-danger"></span>*@
+            </div>
+            <button type="submit" class="btn btn-default">Post!</button>
+        }
+    </form>
+</div>
+
+
+
+@*<div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Posts.LastOrDefault().Content"></label>
+        <input asp-for="Posts.LastOrDefault().Content" class="form-control" />
+        <span asp-validation-for="Posts.LastOrDefault().Content" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Posts.LastOrDefault().PostType"></label>
+        <input asp-for="Posts.LastOrDefault().PostType" class="form-control" />
+        <span asp-validation-for="Posts.LastOrDefault().PostType" class="text-danger"></span>
+    </div>*@
