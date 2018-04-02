@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\CodeProjects\CodeFiles\" />
     <Folder Include="wwwroot\images\StoredImages\" />
     <Folder Include="wwwroot\PostImages\StoredImages\" />
   </ItemGroup>

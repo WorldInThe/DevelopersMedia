@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Asp_Core_Testing.Models.CodeProjects>
+    
+@{
+    ViewData["Title"] = "Folders";
+}
+
+<h2>Folders</h2>
+
+<table class="table">
+    
+        <tr>
+            <th>Folder Name</th>
+            <th>Operations</th>
+        </tr>
+    
+    <tbody>
+        @foreach (var item in Model)
+        { 
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @Html.ActionLink("Open Folder", "CodeSnippets", new { id = item.Id }, new { @class = "button" })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <form asp-controller="CodeProjects" asp-action="FolderCreate" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Folder Name To Create:</label>
+            <input type="text" name="FileName" style="border-radius:5px; border:solid #3d2e49; color: black; background-color: darkgray" />
+        </div>
+        <button type="submit" class="btn btn-default">Create Folder</button>
+    </form>
+</div>

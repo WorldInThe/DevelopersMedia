@@ -141,7 +141,13 @@ namespace Asp_Core_Testing.Data.Migrations
 
                     b.Property<DateTime?>("DateAdded");
 
+                    b.Property<string>("FileUrl");
+
                     b.Property<int>("ModelId");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(20);
 
                     b.Property<int?>("UserModelId");
 

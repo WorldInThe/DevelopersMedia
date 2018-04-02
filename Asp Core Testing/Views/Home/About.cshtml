@@ -3,5 +3,29 @@
 }
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
+<title>ACE in Action</title>
+<style type="text/css" media="screen">
 
-<p>Use this area to provide additional information.</p>
+    #editor {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+</style>
+
+
+    <div id="editor" style="margin-left: 5%">
+        function foo(items) {
+        var x = "All this is syntax highlighted";
+        return x;
+        }
+    </div>
+
+    <script src="~/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/gruvbox");
+        editor.session.setMode("ace/mode/python");
+    </script>
